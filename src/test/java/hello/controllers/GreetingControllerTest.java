@@ -111,6 +111,12 @@ public class GreetingControllerTest {
 	}
 
 	@Test
+	public void deleteGreetingHtml() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.post("/greeting/1/delete").accept(MediaType.TEXT_HTML))
+		.andExpect(status().isOk()).andExpect(view().name("greeting/index"));
+	}
+
+	@Test
 	public void deleteGreetingJson() throws Exception {
 		mvc.perform(MockMvcRequestBuilders.delete("/greeting/1")).andExpect(status().isNoContent());
 	}
