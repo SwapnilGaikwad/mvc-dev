@@ -92,4 +92,12 @@ public class GreetingController {
 
 		return ResponseEntity.created(location.toUri()).build();
 	}
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public @ResponseBody ResponseEntity<?> deleteGreetingApi(@PathVariable("id") long id) {
+
+		greetingService.delete(id);
+
+		return ResponseEntity.noContent().build();
+	}
 }
