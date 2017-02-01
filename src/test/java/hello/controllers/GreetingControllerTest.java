@@ -113,7 +113,8 @@ public class GreetingControllerTest {
 	@Test
 	public void deleteGreetingHtml() throws Exception {
 		mvc.perform(MockMvcRequestBuilders.post("/greeting/1/delete").accept(MediaType.TEXT_HTML))
-		.andExpect(status().isOk()).andExpect(view().name("greeting/index"));
+				.andExpect(status().isFound()).andExpect(content().string(""))
+				.andExpect(view().name("redirect:/greeting"));
 	}
 
 	@Test

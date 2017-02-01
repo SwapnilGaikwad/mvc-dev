@@ -93,6 +93,14 @@ public class GreetingController {
 		return ResponseEntity.created(location.toUri()).build();
 	}
 
+	@RequestMapping(value = "/{id}/delete", method = RequestMethod.POST, produces = { MediaType.TEXT_HTML_VALUE })
+	public String deleteGreetingWeb(@PathVariable("id") long id) {
+
+		greetingService.delete(id);
+
+		return "redirect:/greeting";
+	}
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody ResponseEntity<?> deleteGreetingApi(@PathVariable("id") long id) {
 
