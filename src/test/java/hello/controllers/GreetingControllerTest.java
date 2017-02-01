@@ -109,4 +109,9 @@ public class GreetingControllerTest {
 				.content("{ \"template\": \"\" }").accept(MediaType.APPLICATION_JSON))
 		.andExpect(status().isUnprocessableEntity()).andExpect(content().string(""));
 	}
+
+	@Test
+	public void deleteGreetingJson() throws Exception {
+		mvc.perform(MockMvcRequestBuilders.delete("/greeting/1")).andExpect(status().isNoContent());
+	}
 }
