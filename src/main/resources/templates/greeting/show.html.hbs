@@ -5,7 +5,13 @@
     <p>{{greeting}}</p>
   </blockquote>
 
-  <a class="btn btn-primary" role="button" href="/greeting">Back</a>
+  <p>
+    <a class="btn btn-primary" role="button" href="/greeting">Back</a>
+    <br />
+    <form action="/greeting/{{id}}/delete" method="post">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </p>
 {{/partial}}
 
 {{> layouts/base title="A greeting"}}
