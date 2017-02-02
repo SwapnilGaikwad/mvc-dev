@@ -108,4 +108,12 @@ public class GreetingController {
 
 		return ResponseEntity.noContent().build();
 	}
+
+	@RequestMapping(method = RequestMethod.DELETE)
+	public @ResponseBody ResponseEntity<?> deleteAllGreetingsApi() {
+
+		greetingService.deleteAll();
+
+		return ResponseEntity.noContent().build();
+	}
 }
