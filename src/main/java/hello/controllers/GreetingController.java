@@ -54,6 +54,15 @@ public class GreetingController {
 		return "greeting/show";
 	}
 
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = { MediaType.TEXT_HTML_VALUE,
+			MediaType.APPLICATION_JSON_VALUE })
+	public String deleteGreeting(@PathVariable("id") long id,
+			@RequestParam(value = "name", required = false, defaultValue = "World") String name, Model model) {
+
+		greetingService.delete(id);
+		return "greeting/show";
+	}
+
 	@RequestMapping(value = "/new", method = RequestMethod.GET, produces = { MediaType.TEXT_HTML_VALUE })
 	public String newGreetingHtml(Model model) {
 		return "greeting/new";
