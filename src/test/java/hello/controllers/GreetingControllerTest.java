@@ -42,8 +42,7 @@ public class GreetingControllerTest {
 
 	@Test
 	public void deleteGreetingHtml() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.delete("/greeting/1").accept(MediaType.TEXT_HTML)).andExpect(status().isNoContent())
-		.andExpect(view().name("greeting/show"));
+		mvc.perform(MockMvcRequestBuilders.delete("/greeting/1").accept(MediaType.TEXT_HTML)).andExpect(status().isNoContent());
 	}
 
 	@Test

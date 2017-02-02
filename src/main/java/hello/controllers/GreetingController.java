@@ -56,11 +56,11 @@ public class GreetingController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = { MediaType.TEXT_HTML_VALUE,
 			MediaType.APPLICATION_JSON_VALUE })
-	public String deleteGreeting(@PathVariable("id") long id,
+	public @ResponseBody ResponseEntity<?> deleteGreeting(@PathVariable("id") long id,
 			@RequestParam(value = "name", required = false, defaultValue = "World") String name, Model model) {
 
 		greetingService.delete(id);
-		return "greeting/show";
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 
 	@RequestMapping(value = "/new", method = RequestMethod.GET, produces = { MediaType.TEXT_HTML_VALUE })
