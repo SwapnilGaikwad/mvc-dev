@@ -6,4 +6,9 @@
       <a href="/greeting/{{id}}?name={{this}}">{{this}}</a>{{#unless @last}},{{/unless}}
     {{/names}}
   </td>
+  <td>
+    <form action="/greeting/{{id}}/delete" method="post">
+      <button type="submit" class="btn btn-danger btn-xs">Delete</button>
+    </form>
+  </td>
 </tr>
