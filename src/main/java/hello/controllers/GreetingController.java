@@ -54,6 +54,17 @@ public class GreetingController {
 		return "greeting/show";
 	}
 
+	@RequestMapping(value = "/search", method = RequestMethod.GET, produces = { MediaType.TEXT_HTML_VALUE,
+			MediaType.APPLICATION_JSON_VALUE })
+	public String greetingSearch(
+			@RequestParam(value = "searchKey", required = false, defaultValue = "World") String searchKey, Model model) {
+
+		//Greeting greeting = greetingService.findOne(Long.parseLong(searchKey));
+		model.addAttribute("greeting", "Search Result shall be displayed here....");
+
+		return "greeting/show";
+	}
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = { MediaType.TEXT_HTML_VALUE,
 			MediaType.APPLICATION_JSON_VALUE })
 	public @ResponseBody ResponseEntity<?> deleteGreeting(@PathVariable("id") long id,
