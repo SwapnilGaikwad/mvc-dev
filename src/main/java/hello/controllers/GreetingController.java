@@ -56,13 +56,9 @@ public class GreetingController {
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET, produces = { MediaType.TEXT_HTML_VALUE,
 			MediaType.APPLICATION_JSON_VALUE })
-	public String greetingSearch(
-			@RequestParam(value = "searchKey", required = false, defaultValue = "World") String searchKey, Model model) {
+	public String greetingSearch(Model model) {
 
-		//Greeting greeting = greetingService.findOne(Long.parseLong(searchKey));
-		model.addAttribute("greeting", "Search Result shall be displayed here....");
-
-		return "greeting/show";
+		return "greeting/search";
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = { MediaType.TEXT_HTML_VALUE,
