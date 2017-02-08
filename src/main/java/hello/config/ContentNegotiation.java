@@ -55,7 +55,8 @@ public class ContentNegotiation extends WebMvcConfigurerAdapter {
 		handlebars.applyToViewResolver(resolver);
 		resolver.setSuffix(".html.hbs");
 		resolver.setContentType(MediaType.TEXT_HTML_VALUE);
-		resolver.setCache(!isDefaultProfile());
+		//resolver.setCache(!isDefaultProfile());
+		resolver.setCache(false);
 		resolver.setOrder(1);
 
 		return resolver;
@@ -66,7 +67,8 @@ public class ContentNegotiation extends WebMvcConfigurerAdapter {
 		handlebars.applyToViewResolver(resolver);
 		resolver.setSuffix(".json.hbs");
 		resolver.setContentType(MediaType.APPLICATION_JSON_VALUE);
-		resolver.setCache(!isDefaultProfile());
+		//resolver.setCache(!isDefaultProfile());
+		resolver.setCache(false);
 		resolver.setOrder(2);
 
 		return resolver;
