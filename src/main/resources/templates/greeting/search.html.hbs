@@ -6,6 +6,24 @@
 	<input class="form-control" type="text" name="searchKey" id="searchKey" placeholder="Search text" autofocus />
 	<button class="btn btn-primary" type="submit">Submit</button>
 </form>
+
+{{#if greetings}}
+  <table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Template</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#greetings}}
+      {{> greeting/_detail this.names}}
+    {{/greetings}}
+  </tbody>
+</table>
+{{/if}}
+
 {{/partial}}
 
 {{> layouts/base title="All greetings"}}

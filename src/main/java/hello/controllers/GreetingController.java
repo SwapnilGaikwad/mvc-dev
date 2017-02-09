@@ -56,8 +56,12 @@ public class GreetingController {
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET, produces = { MediaType.TEXT_HTML_VALUE,
 			MediaType.APPLICATION_JSON_VALUE })
-	public String greetingSearch(Model model) {
+	public String greetingSearch(@RequestParam(value = "searchKey", required = false) String searchKey, Model model) {
 
+		if(searchKey != null && searchKey.length() != 0) {
+			model.addAttribute("greetings", greetingService.findAll());
+			model.addAttribute("names", NAMES);
+		}
 		return "greeting/search";
 	}
 
